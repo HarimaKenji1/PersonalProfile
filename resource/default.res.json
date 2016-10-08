@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "bg_jpg,egret_icon_png,description_json,1403251030908_jpg,20160130140313_ysxMU.thumb.224_0_jpeg,20160130140313_ysxMU.thumb.224_0_png",
+			"keys": "bg_jpg,egret_icon_png,description_json,1403251030908_jpg,20160130140313_ysxMU.thumb.224_0_jpeg,20160130140313_ysxMU.thumb.224_0_png,MainBodyMask_png,Line_png,Touxiang_png,Cong_png,IndexBack_jpg,SecondBack_jpg",
 			"name": "preload"
 		}
 	],
@@ -35,6 +35,36 @@
 			"name": "20160130140313_ysxMU.thumb.224_0_png",
 			"type": "image",
 			"url": "assets/20160130140313_ysxMU.thumb.224_0.png"
+		},
+		{
+			"name": "MainBodyMask_png",
+			"type": "image",
+			"url": "assets/MainBodyMask.png"
+		},
+		{
+			"name": "Line_png",
+			"type": "image",
+			"url": "assets/Line.png"
+		},
+		{
+			"name": "Touxiang_png",
+			"type": "image",
+			"url": "assets/Touxiang.png"
+		},
+		{
+			"name": "Cong_png",
+			"type": "image",
+			"url": "assets/Cong.png"
+		},
+		{
+			"name": "IndexBack_jpg",
+			"type": "image",
+			"url": "assets/IndexBack.jpg"
+		},
+		{
+			"name": "SecondBack_jpg",
+			"type": "image",
+			"url": "assets/SecondBack.jpg"
 		}
 	]
 }

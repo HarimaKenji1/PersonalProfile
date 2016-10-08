@@ -113,29 +113,65 @@ class Main extends egret.DisplayObjectContainer {
 
     private textfield:egret.TextField;
 
+
+
     /**
      * 创建游戏场景
      * Create a game scene
      */
+     private IndexCong01 :　egret.Bitmap;
+     private IndexCong02 :　egret.Bitmap ;
+     private BeginPoint : egret.Point = new egret.Point();
+     private EndPoint : egret.Point= new egret.Point();
+     private _distance:egret.Point = new egret.Point();
+     private Pages : number[] = [1,2];
+     private CurrentPage = 0;
+     private FinalPage = this.Pages.length -1;
+     private _touchStatus = false;
+     private PagesArray:egret.DisplayObjectContainer [];
+     private dis  = 0;
+
     private createGameScene():void {
-        var sky:egret.Bitmap = this.createBitmapByName("1403251030908_jpg");
-        this.addChild(sky);
+        let Index:egret.DisplayObjectContainer=new egret.DisplayObjectContainer();
+        Index.width = stageW;
+        Index.height = stageH;
+        Index.x = 0;
+        Index.y = 0;
+
+        let SecondPage:egret.DisplayObjectContainer = new egret.DisplayObjectContainer();
+        SecondPage.width = stageW;
+        SecondPage.height = stageH;
+        SecondPage.x = this.stage.stageWidth;
+        SecondPage.y = 0;
+
+
+        this.PagesArray =[Index,SecondPage]; 
+
+        for(let n = this.PagesArray.length - 1;n >= 0;n--){
+            this.addChild(this.PagesArray[n]);
+        }
+
+
+
+
+        var sky:egret.Bitmap = this.createBitmapByName("IndexBack_jpg");
         var stageW:number = this.stage.stageWidth;
         var stageH:number = this.stage.stageHeight;
         sky.width = stageW;
         sky.height = stageH;
+        Index.addChild(sky);
 
         var topMask = new egret.Shape();
         topMask.graphics.beginFill(0x000000, 0.5);
         topMask.graphics.drawRect(0, 0, stageW, 172);
         topMask.graphics.endFill();
         topMask.y = 33;
-        this.addChild(topMask);
+        Index.addChild(topMask);
 
-        var icon:egret.Bitmap = this.createBitmapByName("20160130140313_ysxMU.thumb.224_0_png");
+        var icon:egret.Bitmap = this.createBitmapByName("Touxiang_png");
         icon.width = 140;
         icon.height = 140;
-        this.addChild(icon);
+        Index.addChild(icon);
         icon.x = 15;
         icon.y = 50;
 
@@ -146,7 +182,7 @@ class Main extends egret.DisplayObjectContainer {
         line.graphics.endFill();
         line.x = 172;
         line.y = 61;
-        this.addChild(line);
+        Index.addChild(line);
 
 
         var colorLabel = new egret.TextField();
@@ -157,10 +193,10 @@ class Main extends egret.DisplayObjectContainer {
         colorLabel.size = 24;
         colorLabel.x = 172;
         colorLabel.y = 80;
-        this.addChild(colorLabel);
+        Index.addChild(colorLabel);
 
         var textfield = new egret.TextField();
-        this.addChild(textfield);
+        Index.addChild(textfield);
         textfield.alpha = 0;
         textfield.width = stageW - 172;
         textfield.textAlign = egret.HorizontalAlign.CENTER;
@@ -170,15 +206,250 @@ class Main extends egret.DisplayObjectContainer {
         textfield.y = 135;
         this.textfield = textfield;
 
+
+        var MainTextMask :egret.Bitmap = this.createBitmapByName("MainBodyMask_png");
+        MainTextMask.alpha = 0.5;
+        MainTextMask.width = 5*stageW/7;
+        MainTextMask.height = 0;
+        MainTextMask.x = stageW/7;
+        MainTextMask.y = 3*stageH/11;
+        Index.addChild(MainTextMask);
+
+        var MainText : egret.TextField = new egret.TextField();
+        MainText.textColor = 0xdddddd;
+        MainText.textAlign = "Left";
+        MainText.size = 25;
+        MainText.bold = true;
+        MainText.text =  "姓名：韩沁儒\n\n学号：14081104\n\n性别：男\n\n自我介绍：\n\n\n\n  总感觉自我介绍，自我评论什么的好羞耻，就写点别的了，完成这个的时候还不知道怎么根据文件名称读取res中的文本信息，或者像项目里description那样的用法，无奈只能先写这么长的字符串，实在是不优雅_(:з」∠)_";
+        MainText.width = 4*stageW/7;
+        MainText.x = 40 + stageW/7;
+        MainText.y = 90 + 3*stageH/11;
+        MainText.alpha = 0;
+        Index.addChild(MainText);
+
+        var MainTextLine :egret.Bitmap = this.createBitmapByName("Line_png");
+        MainTextLine.alpha = 0;
+        MainTextLine.width = 0;
+        MainTextLine.height = 280;
+        MainTextLine.x = 40 + stageW/7;
+        MainTextLine.y = 300 + 3*stageH/11;
+        Index.addChild(MainTextLine);
+
+        this.IndexCong01 = this.createBitmapByName("Cong_png")
+        this.IndexCong01.width = 120;
+        this.IndexCong01.height = 110;
+        this.IndexCong01.anchorOffsetX = this.IndexCong01.width / 2;
+        this.IndexCong01.anchorOffsetY = this.IndexCong01.height / 2 + 5;
+        this.IndexCong01.x = stageW/7;
+        this.IndexCong01.y = 3*stageH/11;
+        this.IndexCong01.alpha = 0;
+        Index.addChild(this.IndexCong01);
+
+        this.IndexCong02 = this.createBitmapByName("Cong_png");
+        this.IndexCong02.width = 120;
+        this.IndexCong02.height = 110;
+        this.IndexCong02.anchorOffsetX = this.IndexCong01.width / 2;
+        this.IndexCong02.anchorOffsetY = this.IndexCong01.height / 2 + 5;
+        this.IndexCong02.x = 6*stageW/7;
+        this.IndexCong02.y = 3*stageH/11 + 5*stageH/8;
+        this.IndexCong02.alpha = 0;
+        Index.addChild(this.IndexCong02);
+
+        var sky02:egret.Bitmap = this.createBitmapByName("SecondBack_jpg");
+        SecondPage.addChild(sky02);
+        sky02.width = stageW;
+        sky02.height = stageH;
+        sky02.x = 0;
+        sky02.y = 0;
+        
+
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
+/*        
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_BEGIN, (evt :egret.TouchEvent)=>{
+            this.BeginPoint.x = evt.stageX;
+            }, this );
+
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, (evt :egret.TouchEvent)=>{
+            this._distance.x = this.BeginPoint.x - evt.stageX ;
+            for(let n = 0 ; n < this.FinalPage + 1 ; n++ ){
+                this.PagesArray[n].x -= this._distance.x;
+                }
+            //Index.x -= this._distance.x/100;
+            //SecondPage.x -= this._distance.x/100;
+            }, this );
+
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_END, (evt :egret.TouchEvent)=>{
+            this._distance.x = this.BeginPoint.x - evt.stageX;
+
+            if(this.Pages[this.CurrentPage] == 1){
+                if(this._distance.x <= stageW / 2){
+                egret.Tween.get(Index).to({x : 0} , 400);
+                egret.Tween.get(SecondPage).to({x : stageW} , 400);
+                }
+                else {
+                      
+                         for(let n = 0 ; n < this.FinalPage + 1 ; n++ ){
+                          let Pdistance = this.PagesArray[n].x + this._distance.x - stageW ;
+                          egret.Tween.get(this.PagesArray[n]).to({x : Pdistance} , 400);
+                          }
+                         this.CurrentPage++;
+                      
+                }
+                
+            }
+
+            if(this.Pages[this.CurrentPage] == this.FinalPage + 1 ){
+                if(this._distance.x >= - stageW / 2){
+                egret.Tween.get(this.PagesArray[this.FinalPage - 1]).to({x : -stageW} , 400);
+                egret.Tween.get(this.PagesArray[this.FinalPage]).to({x : 0} , 400);
+                }
+                else {
+                      
+                         for(let n = 0 ;n < this.FinalPage + 1 ;n++ ){
+                             let Pdistance = this.PagesArray[n].x + this._distance.x + stageW;
+                          egret.Tween.get(this.PagesArray[n]).to({x : Pdistance} , 400);
+                          }
+                         this.CurrentPage--;
+                      
+                }
+
+            }
+            }, this );
+*/
+
+
+
+
+
+
+        this.stage.addEventListener( egret.TouchEvent.TOUCH_TAP, ()=>{
+            egret.Tween.get(MainTextMask).to({height : 5*stageH/8},900);
+            let tw_MainText = egret.Tween.get(MainText);
+            let tw_MainTextLine = egret.Tween.get(MainTextLine);
+            let tw_IndexCong01 = egret.Tween.get(this.IndexCong01);
+            let tw_IndexCong02 = egret.Tween.get(this.IndexCong02);
+            tw_MainText.wait(950);
+            tw_MainTextLine.wait(950);
+            tw_IndexCong01.wait(950);
+            tw_IndexCong02.wait(950);
+            tw_MainText.to({alpha : 0.8},500);
+            tw_MainTextLine.to({alpha : 0.8},50);
+            tw_MainTextLine.to({width : 4*stageW/7},500);
+            tw_IndexCong01.to({alpha : 1},300);
+            tw_IndexCong02.to({alpha : 1},300);
+        }, this );
+
         //根据name关键字，异步获取一个json配置文件，name属性请参考resources/resource.json配置文件的内容。
         // Get asynchronously a json configuration file according to name keyword. As for the property of name please refer to the configuration file of resources/resource.json.
         RES.getResAsync("description_json", this.startAnimation, this)
+    }
+
+
+
+    private mouseDown(evt:egret.TouchEvent)
+    {
+        this._touchStatus = true;
+        this.BeginPoint.x = evt.stageX;
+        this.stage.addEventListener(egret.TouchEvent.TOUCH_MOVE, this.mouseMove, this);
+    }
+
+    private mouseMove(evt:egret.TouchEvent)
+    {
+        if( this._touchStatus )
+        {
+            this._distance.x = this.BeginPoint.x - evt.stageX ;
+            for(let n = 0 ; n < this.FinalPage + 1 ; n++ ){
+                this.PagesArray[n].x -= this._distance.x/100;
+                }
+            this.dis += this._distance.x/100;
+        }
+    }
+
+    private mouseUp(evt:egret.TouchEvent)
+    {
+        this._touchStatus = false;
+
+
+        this._distance.x = this.BeginPoint.x - evt.stageX;
+
+            if(this.Pages[this.CurrentPage] == 1){          //第一页的情况
+                if(this._distance.x <= this.stage.stageWidth / 2){
+                egret.Tween.get(this.PagesArray[0]).to({x : 0} , 400);
+                egret.Tween.get(this.PagesArray[1]).to({x : this.stage.stageWidth} , 400);
+                this.dis = 0;
+                }
+                else {
+                      
+                         for(let n = 0 ; n < this.FinalPage + 1 ; n++ ){
+                          let Pdistance = this.PagesArray[n].x + this.dis - this.stage.stageWidth;
+                          egret.Tween.get(this.PagesArray[n]).to({x : Pdistance} , 400);
+                          }
+                         this.CurrentPage++;
+                         this.dis = 0;
+                      
+                }
+                
+            }
+
+
+
+            if( this.Pages[this.CurrentPage] > 1 && this.Pages[this.CurrentPage] < this.FinalPage + 1 ){//中间页的情况
+                if(this._distance.x >= - this.stage.stageWidth / 2 && this._distance.x <= this.stage.stageWidth / 2){
+                    egret.Tween.get(this.PagesArray[this.CurrentPage]).to({x : 0},400);
+                    egret.Tween.get(this.PagesArray[this.CurrentPage - 1]).to({x : - this.stage.stageWidth},400);
+                    egret.Tween.get(this.PagesArray[this.CurrentPage + 1]).to({x : this.stage.stageWidth},400);
+                    this.dis = 0;
+                }
+
+                if(this._distance.x < - this.stage.stageWidth / 2){
+                    for(let n = 0 ;n < this.FinalPage + 1 ;n++ ){
+                             let Pdistance = this.PagesArray[n].x + this.dis + this.stage.stageWidth;
+                          egret.Tween.get(this.PagesArray[n]).to({x : Pdistance} , 400);
+                          }
+                         this.CurrentPage--;
+                         this.dis = 0;
+                }
+
+                if(this._distance.x > this.stage.stageWidth / 2){
+                    for(let n = 0 ; n < this.FinalPage + 1 ; n++ ){
+                          let Pdistance = this.PagesArray[n].x + this.dis - this.stage.stageWidth;
+                          egret.Tween.get(this.PagesArray[n]).to({x : Pdistance} , 400);
+                          }
+                         this.CurrentPage++;
+                         this.dis = 0;
+                }
+            }
+
+
+            if(this.Pages[this.CurrentPage] == this.FinalPage + 1 ){     //最后一页的情况
+                if(this._distance.x >= - this.stage.stageWidth / 2){
+                egret.Tween.get(this.PagesArray[this.FinalPage - 1]).to({x : - this.stage.stageWidth} , 400);
+                egret.Tween.get(this.PagesArray[this.FinalPage]).to({x : 0} , 400);
+                this.dis = 0;
+                }
+                else {
+                      
+                         for(let n = 0 ;n < this.FinalPage + 1 ;n++ ){
+                             let Pdistance = this.PagesArray[n].x + this.dis + this.stage.stageWidth;
+                          egret.Tween.get(this.PagesArray[n]).to({x : Pdistance} , 400);
+                          }
+                         this.CurrentPage--;
+                         this.dis = 0;
+                      
+                }
+
+            }
+
+
+        this.stage.removeEventListener(egret.TouchEvent.TOUCH_MOVE, this.mouseMove, this);
     }
 
     /**
      * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
      * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
      */
+
     private createBitmapByName(name:string):egret.Bitmap {
         var result = new egret.Bitmap();
         var texture:egret.Texture = RES.getRes(name);
@@ -217,7 +488,19 @@ class Main extends egret.DisplayObjectContainer {
             tw.call(change, self);
         };
 
+
+        var CongRoated:Function = function(){
+            let tw_IndexCong01 = egret.Tween.get(self.IndexCong01);
+            let tw_IndexCong02 = egret.Tween.get(self.IndexCong02);
+            tw_IndexCong01.to({rotation : 360},6000);
+            tw_IndexCong02.to({rotation : -360},6000);
+            tw_IndexCong01.call(CongRoated,self);
+        }
+
+
         change();
+        CongRoated();
+        
     }
 
     /**
