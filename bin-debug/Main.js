@@ -38,6 +38,8 @@ var Main = (function (_super) {
         this.FinalPage = this.Pages.length - 1;
         this._touchStatus = false;
         this.dis = 0;
+        this.PictureNum = 0;
+        this.isSecondPage = false;
         this.addEventListener(egret.Event.ADDED_TO_STAGE, this.onAddToStage, this);
     }
     var d = __define,c=Main,p=c.prototype;
@@ -208,12 +210,280 @@ var Main = (function (_super) {
         this.IndexCong02.y = 3 * stageH / 11 + 5 * stageH / 8;
         this.IndexCong02.alpha = 0;
         Index.addChild(this.IndexCong02);
+        this.IndexStartingLoge = this.createBitmapByName("IndexLogo_png");
+        Index.addChild(this.IndexStartingLoge);
+        this.IndexStartingLoge.width = 400;
+        this.IndexStartingLoge.height = 400;
+        this.IndexStartingLoge.anchorOffsetX = this.IndexStartingLoge.width / 2;
+        this.IndexStartingLoge.anchorOffsetY = this.IndexStartingLoge.height / 2;
+        this.IndexStartingLoge.x = stageW / 2;
+        this.IndexStartingLoge.y = stageH / 2;
+        this.IndexStartingLoge.touchEnabled = true;
         var sky02 = this.createBitmapByName("SecondBack_jpg");
         SecondPage.addChild(sky02);
         sky02.width = stageW;
         sky02.height = stageH;
         sky02.x = 0;
         sky02.y = 0;
+        sky02.alpha = 0.6;
+        var BlackMask02 = this.createBitmapByName("MainBodyMask_png");
+        SecondPage.addChild(BlackMask02);
+        BlackMask02.width = stageW;
+        BlackMask02.height = stageH;
+        BlackMask02.x = 0;
+        BlackMask02.y = 0;
+        BlackMask02.alpha = 0.2;
+        var Picture01 = this.createBitmapByName("01_jpg");
+        SecondPage.addChild(Picture01);
+        Picture01.width = 160;
+        Picture01.height = 90;
+        Picture01.x = 80;
+        Picture01.y = 360;
+        Picture01.touchEnabled = true;
+        Picture01.alpha = 0;
+        var temp1 = new egret.Point();
+        temp1.x = Picture01.x;
+        temp1.y = Picture01.y;
+        this.PictureNum++;
+        var Picture02 = this.createBitmapByName("02_jpg");
+        SecondPage.addChild(Picture02);
+        Picture02.width = 160;
+        Picture02.height = 90;
+        Picture02.x = Picture01.x + Picture01.width;
+        Picture02.y = Picture01.y;
+        Picture02.touchEnabled = true;
+        Picture02.alpha = 0;
+        var temp2 = new egret.Point();
+        temp2.x = Picture02.x;
+        temp2.y = Picture02.y;
+        this.PictureNum++;
+        var Picture03 = this.createBitmapByName("03_jpg");
+        SecondPage.addChild(Picture03);
+        Picture03.width = 160;
+        Picture03.height = 90;
+        Picture03.x = Picture02.x + Picture02.width;
+        Picture03.y = Picture02.y;
+        Picture03.touchEnabled = true;
+        Picture03.alpha = 0;
+        var temp3 = new egret.Point();
+        temp3.x = Picture03.x;
+        temp3.y = Picture03.y;
+        this.PictureNum++;
+        var Picture04 = this.createBitmapByName("04_jpg");
+        SecondPage.addChild(Picture04);
+        Picture04.width = 160;
+        Picture04.height = 90;
+        Picture04.x = Picture01.x;
+        Picture04.y = Picture01.y + Picture01.height + 80;
+        Picture04.touchEnabled = true;
+        Picture04.alpha = 0;
+        var temp4 = new egret.Point();
+        temp4.x = Picture04.x;
+        temp4.y = Picture04.y;
+        this.PictureNum++;
+        var Picture05 = this.createBitmapByName("05_png");
+        SecondPage.addChild(Picture05);
+        Picture05.width = 160;
+        Picture05.height = 90;
+        Picture05.x = Picture04.x + Picture04.width;
+        Picture05.y = Picture04.y;
+        Picture05.touchEnabled = true;
+        Picture05.alpha = 0;
+        var temp5 = new egret.Point();
+        temp5.x = Picture05.x;
+        temp5.y = Picture05.y;
+        this.PictureNum++;
+        var Picture06 = this.createBitmapByName("06_jpg");
+        SecondPage.addChild(Picture06);
+        Picture06.width = 160;
+        Picture06.height = 90;
+        Picture06.x = Picture05.x + Picture05.width;
+        Picture06.y = Picture05.y;
+        Picture06.touchEnabled = true;
+        Picture06.alpha = 0;
+        var temp6 = new egret.Point();
+        temp6.x = Picture06.x;
+        temp6.y = Picture06.y;
+        this.PictureNum++;
+        var Picture07 = this.createBitmapByName("07_jpg");
+        SecondPage.addChild(Picture07);
+        Picture07.width = 160;
+        Picture07.height = 90;
+        Picture07.x = Picture04.x;
+        Picture07.y = Picture04.y + Picture04.height + 80;
+        Picture07.touchEnabled = true;
+        Picture07.alpha = 0;
+        var temp7 = new egret.Point();
+        temp7.x = Picture07.x;
+        temp7.y = Picture07.y;
+        this.PictureNum++;
+        var Picture08 = this.createBitmapByName("08_jpg");
+        SecondPage.addChild(Picture08);
+        Picture08.width = 160;
+        Picture08.height = 90;
+        Picture08.x = Picture07.x + Picture07.width;
+        Picture08.y = Picture07.y;
+        Picture08.touchEnabled = true;
+        Picture08.alpha = 0;
+        var temp8 = new egret.Point();
+        temp8.x = Picture08.x;
+        temp8.y = Picture08.y;
+        this.PictureNum++;
+        var Picture09 = this.createBitmapByName("09_jpg");
+        SecondPage.addChild(Picture09);
+        Picture09.width = 160;
+        Picture09.height = 90;
+        Picture09.x = Picture08.x + Picture08.width;
+        Picture09.y = Picture08.y;
+        Picture09.touchEnabled = true;
+        Picture09.alpha = 0;
+        var temp9 = new egret.Point();
+        temp9.x = Picture09.x;
+        temp9.y = Picture09.y;
+        var SecondPageMikuQiangJing = this.createBitmapByName("MikuQiangjing_png");
+        SecondPage.addChild(SecondPageMikuQiangJing);
+        SecondPageMikuQiangJing.width = 150;
+        SecondPageMikuQiangJing.height = 150;
+        SecondPageMikuQiangJing.x = stageW;
+        SecondPageMikuQiangJing.y = stageH;
+        var BackPicture01 = this.createBitmapByName("MainBodyMask_png");
+        SecondPage.addChild(BackPicture01);
+        BackPicture01.width = stageW;
+        BackPicture01.height = 360;
+        BackPicture01.x = 0;
+        BackPicture01.y = 0;
+        BackPicture01.alpha = 0;
+        BackPicture01.touchEnabled = true;
+        var BackPicture02 = this.createBitmapByName("MainBodyMask_png");
+        SecondPage.addChild(BackPicture02);
+        BackPicture02.width = stageW;
+        BackPicture02.height = stageH - Picture09.y;
+        BackPicture02.x = 0;
+        BackPicture02.y = Picture09.y + 90;
+        BackPicture02.alpha = 0;
+        BackPicture02.touchEnabled = true;
+        this.SecondPagePicturesPoint = [temp1, temp2, temp3, temp4, temp5, temp6, temp7, temp8, temp9];
+        this.SecondePagePictures = [Picture01, Picture02, Picture03, Picture04, Picture05, Picture06, Picture07, Picture08, Picture09];
+        this.PictureNum++;
+        var SecondPageTitleLine = this.createBitmapByName("LineForOne_png");
+        SecondPage.addChild(SecondPageTitleLine);
+        SecondPageTitleLine.width = 0;
+        SecondPageTitleLine.height = 5;
+        SecondPageTitleLine.x = 50;
+        SecondPageTitleLine.y = 200;
+        var SecondPageTitleText = new egret.TextField();
+        SecondPage.addChild(SecondPageTitleText);
+        SecondPageTitleText.textColor = 0x33c0b8;
+        SecondPageTitleText.textAlign = "Left";
+        SecondPageTitleText.size = 50;
+        SecondPageTitleText.bold = true;
+        SecondPageTitleText.text = "Picture Show";
+        SecondPageTitleText.x = 50;
+        SecondPageTitleText.y = 170 - SecondPageTitleText.height;
+        SecondPageTitleText.alpha = 0;
+        SecondPageTitleText.stroke = 5;
+        SecondPageTitleText.strokeColor = 0x137564;
+        SecondPage.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            if (_this.isSecondPage) {
+                egret.Tween.get(SecondPageTitleText).to({ alpha: 1 }, 800);
+                egret.Tween.get(SecondPageTitleLine).to({ width: 400 }, 800);
+                var tw_Picture01 = egret.Tween.get(Picture01);
+                var tw_Picture02 = egret.Tween.get(Picture02);
+                var tw_Picture03 = egret.Tween.get(Picture03);
+                var tw_Picture04 = egret.Tween.get(Picture04);
+                var tw_Picture05 = egret.Tween.get(Picture05);
+                var tw_Picture06 = egret.Tween.get(Picture06);
+                var tw_Picture07 = egret.Tween.get(Picture07);
+                var tw_Picture08 = egret.Tween.get(Picture08);
+                var tw_Picture09 = egret.Tween.get(Picture09);
+                var tw_MikuQiangJing = egret.Tween.get(SecondPageMikuQiangJing);
+                tw_Picture01.wait(800);
+                tw_Picture01.to({ alpha: 1 }, 800);
+                tw_Picture02.wait(1200);
+                tw_Picture02.to({ alpha: 1 }, 800);
+                tw_Picture03.wait(1600);
+                tw_Picture03.to({ alpha: 1 }, 800);
+                tw_Picture04.wait(2000);
+                tw_Picture04.to({ alpha: 1 }, 800);
+                tw_Picture05.wait(2400);
+                tw_Picture05.to({ alpha: 1 }, 800);
+                tw_Picture06.wait(2800);
+                tw_Picture06.to({ alpha: 1 }, 800);
+                tw_Picture07.wait(3200);
+                tw_Picture07.to({ alpha: 1 }, 800);
+                tw_Picture08.wait(3600);
+                tw_Picture08.to({ alpha: 1 }, 800);
+                tw_Picture09.wait(4000);
+                tw_Picture09.to({ alpha: 1 }, 800);
+                tw_MikuQiangJing.wait(4800);
+                tw_MikuQiangJing.to({ x: stageW - SecondPageMikuQiangJing.width + 20, y: stageH - SecondPageMikuQiangJing.height + 20 }, 800);
+            }
+        }, SecondPage);
+        BackPicture01.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            egret.Tween.get(BlackMask02).to({ alpha: 0.2 }, 400);
+            for (var n = 0; n < _this.PictureNum; n++) {
+                egret.Tween.get(_this.SecondePagePictures[n]).to({ x: _this.SecondPagePicturesPoint[n].x, y: _this.SecondPagePicturesPoint[n].y, width: 160, height: 90 }, 400);
+            }
+        }, SecondPage);
+        BackPicture02.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            egret.Tween.get(BlackMask02).to({ alpha: 0.2 }, 400);
+            for (var n = 0; n < _this.PictureNum; n++) {
+                egret.Tween.get(_this.SecondePagePictures[n]).to({ x: _this.SecondPagePicturesPoint[n].x, y: _this.SecondPagePicturesPoint[n].y, width: 160, height: 90 }, 400);
+            }
+        }, SecondPage);
+        Picture01.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            SecondPage.setChildIndex(Picture01, SecondPage.numChildren - 1);
+            egret.Tween.get(BlackMask02).to({ alpha: 0.8 }, 400);
+            egret.Tween.get(Picture01).to({ x: 0, y: 388, width: 640, height: 360 }, 400);
+        }, SecondPage);
+        Picture02.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            SecondPage.setChildIndex(Picture02, SecondPage.numChildren - 1);
+            egret.Tween.get(BlackMask02).to({ alpha: 0.8 }, 400);
+            egret.Tween.get(Picture02).to({ x: 0, y: 388, width: 640, height: 360 }, 400);
+        }, SecondPage);
+        Picture03.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            SecondPage.setChildIndex(Picture03, SecondPage.numChildren - 1);
+            egret.Tween.get(BlackMask02).to({ alpha: 0.8 }, 400);
+            egret.Tween.get(Picture03).to({ x: 0, y: 388, width: 640, height: 360 }, 400);
+        }, SecondPage);
+        Picture04.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            SecondPage.setChildIndex(Picture04, SecondPage.numChildren - 1);
+            egret.Tween.get(BlackMask02).to({ alpha: 0.8 }, 400);
+            egret.Tween.get(Picture04).to({ x: 0, y: 388, width: 640, height: 360 }, 400);
+        }, SecondPage);
+        Picture05.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            SecondPage.setChildIndex(Picture05, SecondPage.numChildren - 1);
+            egret.Tween.get(BlackMask02).to({ alpha: 0.8 }, 400);
+            egret.Tween.get(Picture05).to({ x: 0, y: 388, width: 640, height: 360 }, 400);
+        }, SecondPage);
+        Picture06.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            SecondPage.setChildIndex(Picture06, SecondPage.numChildren - 1);
+            egret.Tween.get(BlackMask02).to({ alpha: 0.8 }, 400);
+            egret.Tween.get(Picture06).to({ x: 0, y: 388, width: 640, height: 360 }, 400);
+        }, SecondPage);
+        Picture07.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            SecondPage.setChildIndex(Picture07, SecondPage.numChildren - 1);
+            egret.Tween.get(BlackMask02).to({ alpha: 0.8 }, 400);
+            egret.Tween.get(Picture07).to({ x: 0, y: 388, width: 640, height: 360 }, 400);
+        }, SecondPage);
+        Picture08.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            SecondPage.setChildIndex(Picture08, SecondPage.numChildren - 1);
+            egret.Tween.get(BlackMask02).to({ alpha: 0.8 }, 400);
+            egret.Tween.get(Picture08).to({ x: 0, y: 388, width: 640, height: 360 }, 400);
+        }, SecondPage);
+        Picture09.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            SecondPage.setChildIndex(Picture09, SecondPage.numChildren - 1);
+            egret.Tween.get(BlackMask02).to({ alpha: 0.8 }, 400);
+            egret.Tween.get(Picture09).to({ x: 0, y: 388, width: 640, height: 360 }, 400);
+        }, SecondPage);
+        /*       for(let n = 0; n < this.CurrentPage - 1 ; n++){
+                   this.SecondePagePictures[n].addEventListener(egret.TouchEvent.TOUCH_TAP,()=>{
+                       SecondPage.setChildIndex(this.SecondePagePictures[n],SecondPage.numChildren-1);
+                       egret.Tween.get(BlackMask02).to({alpha : 0.8 } , 400);
+                       egret.Tween.get(this.SecondePagePictures[n]).to({ x : 0 , y : 388 , width : 640 , height : 360},400)
+                   }, SecondPage );
+               }
+       */
         this.stage.addEventListener(egret.TouchEvent.TOUCH_BEGIN, this.mouseDown, this);
         this.stage.addEventListener(egret.TouchEvent.TOUCH_END, this.mouseUp, this);
         /*
@@ -268,7 +538,8 @@ var Main = (function (_super) {
                     }
                     }, this );
         */
-        this.stage.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+        this.IndexStartingLoge.addEventListener(egret.TouchEvent.TOUCH_TAP, function () {
+            egret.Tween.get(_this.IndexStartingLoge).to({ alpha: 0 }, 200);
             egret.Tween.get(MainTextMask).to({ height: 5 * stageH / 8 }, 900);
             var tw_MainText = egret.Tween.get(MainText);
             var tw_MainTextLine = egret.Tween.get(MainTextLine);
@@ -278,9 +549,8 @@ var Main = (function (_super) {
             tw_MainTextLine.wait(950);
             tw_IndexCong01.wait(950);
             tw_IndexCong02.wait(950);
-            tw_MainText.to({ alpha: 0.8 }, 500);
-            tw_MainTextLine.to({ alpha: 0.8 }, 50);
-            tw_MainTextLine.to({ width: 4 * stageW / 7 }, 500);
+            tw_MainText.to({ alpha: 0.8 }, 600);
+            tw_MainTextLine.to({ width: 4 * stageW / 7, alpha: 0.8 }, 600);
             tw_IndexCong01.to({ alpha: 1 }, 300);
             tw_IndexCong02.to({ alpha: 1 }, 300);
         }, this);
@@ -317,6 +587,7 @@ var Main = (function (_super) {
                     egret.Tween.get(this.PagesArray[n]).to({ x: Pdistance }, 400);
                 }
                 this.CurrentPage++;
+                this.isSecondPage = true;
                 this.dis = 0;
             }
         }
@@ -356,6 +627,7 @@ var Main = (function (_super) {
                     egret.Tween.get(this.PagesArray[n]).to({ x: Pdistance }, 400);
                 }
                 this.CurrentPage--;
+                this.isSecondPage = false;
                 this.dis = 0;
             }
         }
@@ -404,8 +676,14 @@ var Main = (function (_super) {
             tw_IndexCong02.to({ rotation: -360 }, 6000);
             tw_IndexCong01.call(CongRoated, self);
         };
+        var IndexLogoRoated = function () {
+            var tw_IndexStartingLoge = egret.Tween.get(self.IndexStartingLoge);
+            tw_IndexStartingLoge.to({ rotation: -360 }, 6500);
+            tw_IndexStartingLoge.call(CongRoated, self);
+        };
         change();
         CongRoated();
+        IndexLogoRoated();
     };
     /**
      * 切换描述内容

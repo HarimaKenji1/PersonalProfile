@@ -1,7 +1,7 @@
 {
 	"groups": [
 		{
-			"keys": "bg_jpg,egret_icon_png,description_json,1403251030908_jpg,20160130140313_ysxMU.thumb.224_0_jpeg,20160130140313_ysxMU.thumb.224_0_png,MainBodyMask_png,Line_png,Touxiang_png,Cong_png,IndexBack_jpg,SecondBack_jpg",
+			"keys": "bg_jpg,egret_icon_png,description_json,1403251030908_jpg,20160130140313_ysxMU.thumb.224_0_jpeg,20160130140313_ysxMU.thumb.224_0_png,MainBodyMask_png,Line_png,Touxiang_png,Cong_png,IndexBack_jpg,SecondBack_jpg,01_jpg,02_jpg,03_jpg,04_jpg,05_png,06_jpg,07_jpg,08_jpg,09_jpg,LineForOne_png,MikuQiangjing_png,IndexLogo_png",
 			"name": "preload"
 		}
 	],
@@ -65,6 +65,66 @@
 			"name": "SecondBack_jpg",
 			"type": "image",
 			"url": "assets/SecondBack.jpg"
+		},
+		{
+			"name": "01_jpg",
+			"type": "image",
+			"url": "assets/01.jpg"
+		},
+		{
+			"name": "02_jpg",
+			"type": "image",
+			"url": "assets/02.jpg"
+		},
+		{
+			"name": "03_jpg",
+			"type": "image",
+			"url": "assets/03.jpg"
+		},
+		{
+			"name": "04_jpg",
+			"type": "image",
+			"url": "assets/04.jpg"
+		},
+		{
+			"name": "05_png",
+			"type": "image",
+			"url": "assets/05.png"
+		},
+		{
+			"name": "06_jpg",
+			"type": "image",
+			"url": "assets/06.jpg"
+		},
+		{
+			"name": "07_jpg",
+			"type": "image",
+			"url": "assets/07.jpg"
+		},
+		{
+			"name": "08_jpg",
+			"type": "image",
+			"url": "assets/08.jpg"
+		},
+		{
+			"name": "09_jpg",
+			"type": "image",
+			"url": "assets/09.jpg"
+		},
+		{
+			"name": "LineForOne_png",
+			"type": "image",
+			"url": "assets/LineForOne.png"
+		},
+		{
+			"name": "MikuQiangjing_png",
+			"type": "image",
+			"url": "assets/MikuQiangjing.png"
+		},
+		{
+			"name": "IndexLogo_png",
+			"type": "image",
+			"url": "assets/IndexLogo.png"
 		}
 	]
 }
