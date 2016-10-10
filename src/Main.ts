@@ -135,6 +135,7 @@ class Main extends egret.DisplayObjectContainer {
      private SecondPagePicturesPoint : egret.Point [];
      private isSecondPage = false;
      private IndexStartingLoge : egret.Bitmap;
+     
 
     private createGameScene():void {
         let Index:egret.DisplayObjectContainer=new egret.DisplayObjectContainer();
@@ -811,8 +812,8 @@ class Main extends egret.DisplayObjectContainer {
 
         var IndexLogoRoated:Function = function(){
             let tw_IndexStartingLoge = egret.Tween.get(self.IndexStartingLoge);
-            tw_IndexStartingLoge.to({rotation : -360},6500);
-            tw_IndexStartingLoge.call(CongRoated,self);
+            tw_IndexStartingLoge.to({rotation : -360},5000);
+            tw_IndexStartingLoge.call(IndexLogoRoated,self);
         }
 
 

@@ -678,8 +678,8 @@ var Main = (function (_super) {
         };
         var IndexLogoRoated = function () {
             var tw_IndexStartingLoge = egret.Tween.get(self.IndexStartingLoge);
-            tw_IndexStartingLoge.to({ rotation: -360 }, 6500);
-            tw_IndexStartingLoge.call(CongRoated, self);
+            tw_IndexStartingLoge.to({ rotation: -360 }, 5000);
+            tw_IndexStartingLoge.call(IndexLogoRoated, self);
         };
         change();
         CongRoated();
